@@ -1,0 +1,63 @@
+ {% extends "base.html" %}
+
+{% block  content %}
+
+
+
+   
+<div class="container">    
+
+  <div class="row">
+    
+        {% for i in team %}
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        {% csrf_token %}
+        
+        <div class="panel-heading"><h3>{{ i.name }} </h3></div>
+
+        <div class="panel-body"><img id = "" src="{{ i.logoUri }}" class="img-responsive" style = "max-width: 95px;" alt="Image"></div>
+        <div class="panel-footer"><h4> Country :  {{ i.clubState}} </h4>
+          <form action="{% url 'players' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" name="submit" value="{{ i.id }}">View players</button>
+          </form>
+        </div> 
+      </div>
+    </div>
+
+      {% endfor %}
+     
+</div>
+ <hr>
+   <br><br>   <br><br>
+<row>
+<center>
+  <form action="{% url 'matchfix' %}" method="post">
+    {% csrf_token %}
+    <label for="Team1">Team 1 : </label>&nbsp&nbsp&nbsp&nbsp&nbsp
+      <select name="team1" id="team1">
+        {% for i in team %}
+        <option value="{{ i.name }}">{{ i.name }}</option>
+        {% endfor %}
+    </select>&nbsp&nbsp&nbsp&nbsp
+    <label for="Team2">Team 2 : </label>&nbsp&nbsp&nbsp
+      <select name="team2" id="team2">
+        {% for i in team %}
+        <option value="{{ i.name }}">{{ i.name }}</option>
+        {% endfor %}
+    </select>&nbsp&nbsp&nbsp&nbsp
+    <button type="submit" name="submit">Match</button>
+  </form>
+  </center>
+</row>
+<br><br><br><br>
+   <hr>
+   <br><br>   <br><br>
+<footer class="container-fluid text-center">
+  <p>Assigment </p>  
+
+</footer>
+</body>
+</html>
+{% endblock  %}

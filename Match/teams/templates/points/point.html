@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<center> <h2> Total records  : {{points.count}} </h2> </center>
+<br><br>
+<center>
+<h2>Points table </h2>
+<br><br>
+<table>
+  <tr>
+    <th>Points</th>
+    <th>Points team</th>
+
+  </tr>
+   {% for point in points %}
+ 
+
+  <tr>
+    <tr class="{% cycle 'row1' 'row2' %}">
+ 
+      <td>  {{ point.points }} </td>
+         <td  > {{ point.teampoints }} </td>
+ 
+  </tr>
+        {% endfor %}
+</table>
+</center>
+<br><br><br><br>
+   <hr>
+   <br><br>   <br><br>
+<footer class="container-fluid text-center">
+  <p>Assigment </p>  
+
+</footer>
+</body>
+</html>
+{% endblock  %}

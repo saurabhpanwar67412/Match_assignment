@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<center> <h2> Total Matches players : {{matches.count}} </h2> </center>
+<br><br>
+<h2>Match data between teams</h2>
+<table style="width:100%">
+  <tr>
+    <th>Matches between teams</th>
+    <th>Winner</th> 
+  </tr>
+  {% for match in matches %}
+  <tr>
+    <td> {{ match.matchesBetweenteams }} </td>
+    <td>{{ match.Winner }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<footer class="container-fluid text-center">
+  <p>Assignment</p>  
+
+</footer>
+</body>
+</html>{% endblock  %}

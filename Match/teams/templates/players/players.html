@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{{% block content %}
+
+
+
+
+   
+<div class="container">    
+
+  <div class="row">
+        {% for player in players %}
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ player.firstName }}</div>
+
+        <div class="panel-body"><img src="{{ player.imageUri }}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">{{ player.team }}</div> 
+        {{ player.imageUri }}
+                <div class="panel-footer">{{ player.jerseyNumber }}</div> 
+                        <div class="panel-footer">{{ player.Country }}</div> 
+                           
+      </div>
+    </div>
+
+      {% endfor %}
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Assignment</p>  
+
+</footer>
+
+</body>
+</html>
+{% endblock  %}}
