@@ -26,6 +26,7 @@ urlpatterns = [
     path('match/', views.match, name='match'),
     path('points/', views.points, name='points'),
     path('result/', views.matchfix, name='matchfix'),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
